@@ -1,0 +1,28 @@
+[project]
+name = "compliance_assistant"
+version = "0.1.0"
+description = "compliance-assistant using crewAI"
+authors = [{ name = "Your Name", email = "you@example.com" }]
+requires-python = ">=3.10,<3.13"
+dependencies = [
+    "awscli>=1.40.12",
+    "bandit>=1.8.3",
+    "boto3>=1.37.6",
+    "crewai[tools]>=0.105.0,<1.0.0",
+    "litellm>=1.68.0",
+    "onnxruntime==1.21.1",
+]
+
+[project.scripts]
+compliance_assistant = "compliance_assistant.main:run"
+run_crew = "compliance_assistant.main:run"
+train = "compliance_assistant.main:train"
+replay = "compliance_assistant.main:replay"
+test = "compliance_assistant.main:test"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.crewai]
+type = "crew"
